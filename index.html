@@ -3,14 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title> Amazon</title>
+    <title>Amazon</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
       crossorigin="anonymous"
-      referrerpolicy="no-referrer"
     />
     <style>
       .sidebar-open {
@@ -18,9 +16,10 @@
       }
     </style>
   </head>
+
   <body class="font-sans m-0 box-border relative">
     <!-- Sidebar -->
-    <div id="id-sidebar" class="fixed top-0 left-[-370px] h-full w-[370px] bg-white text-[#0f1111] overflow-y-scroll transition-all duration-500 z-50">
+    <div id="id-sidebar" class="fixed top-0 left-[-370px] h-full w-[370px] sm:w-[370px] bg-white text-[#0f1111] overflow-y-scroll transition-all duration-500 z-50">
       <div class="bg-[#222f3d] text-white flex items-center justify-end pr-4 py-2">
         <i class="fa-solid fa-x cursor-pointer text-xl" onclick="closeSidebar()"></i>
       </div>
@@ -28,8 +27,7 @@
         <i class="fa-regular fa-user text-xl"></i>
         <h2 class="text-lg">Hello, Sign In</h2>
       </div>
-
-      <!-- Sidebar sections -->
+      <!-- Sidebar Links -->
       <div class="border-b px-6 py-4">
         <p class="font-bold text-lg mb-3">Digital Content & Devices</p>
         <ul class="space-y-2">
@@ -69,137 +67,153 @@
       </div>
     </div>
 
-    <!-- Navbar -->
-    <header class="bg-[#0f1111] text-white flex items-center justify-evenly h-[60px]">
-      <div class="h-[50px] w-[100px]">
-        <div class="h-[50px] w-[135px] bg-[url('amazon_logo.png')] bg-cover"></div>
+    <!-- Header -->
+    <header class="bg-[#0f1111] text-white flex items-center justify-between p-2 gap-2 flex-wrap md:flex-nowrap">
+      <!-- Logo -->
+      <div class="w-[100px] h-[40px] flex-shrink-0">
+        <div class="w-full h-full bg-[url('amazon_logo.png')] bg-contain bg-no-repeat"></div>
       </div>
-      <div class="hover:border-b hover:border-white cursor-pointer">
-        <p class="text-xs text-[#cccccc] ml-4">Deliver to</p>
-        <div class="flex items-center ml-4">
-          <i class="fa-solid fa-location-dot"></i>
-          <p class="text-sm ml-1">India</p>
-        </div>
-      </div>
-      <div class="flex items-center bg-[#febd68] rounded h-10 w-[750px] hover:border-4 hover:border-orange-400 cursor-pointer">
-        <select class="rounded-l border-none text-black px-2 h-full">
+    
+      <!-- Search bar -->
+      <div class="flex items-center bg-[#febd68] rounded h-9 w-full sm:w-[70%] md:w-[650px] lg:w-[750px]">
+        <select class="rounded-l border-none text-black px-2 text-xs h-full bg-white">
           <option>All</option>
         </select>
-        <input placeholder="Search Amazon Prime" class="flex-grow text-[#0f1111] text-base border-none px-2 h-full" />
-        <div class="w-[50px] flex items-center justify-center text-lg bg-[#febd68] rounded-r h-full">
+        <input
+          type="text"
+          placeholder="Search Amazon Prime"
+          class="flex-grow text-[#0f1111] text-xs sm:text-sm border-none px-2 h-full outline-none"
+        />
+        <div class="w-[36px] flex items-center justify-center text-sm bg-[#febd68] rounded-r h-full">
           <i class="fa-solid fa-magnifying-glass"></i>
         </div>
       </div>
-      <div class="hover:border-b hover:border-white cursor-pointer text-right">
-        <p class="text-xs">Hello, Sign in</p>
-        <p class="text-sm font-bold">Accounts & Lists</p>
+    
+      <!-- Cart -->
+      <div class="flex items-center gap-1 text-xs sm:text-sm font-bold flex-shrink-0">
+        <i class="fa-solid fa-cart-shopping text-sm"></i> Cart
       </div>
-      <div class="hover:border-b hover:border-white cursor-pointer text-right">
-        <p class="text-xs">Returns</p>
-        <p class="text-sm font-bold">& Orders</p>
+ 
+     <!-- Deliver to -->
+      <div class="text-[10px] leading-tight text-left hidden xs:block">
+        <p class="text-[#cccccc]">Deliver to</p>
+        <div class="flex items-center">
+          <i class="fa-solid fa-location-dot text-[10px]"></i>
+          <p class="ml-1">India</p>
+        </div>
       </div>
-      <div class="hover:border-b hover:border-white cursor-pointer flex items-center gap-1 text-sm font-bold">
-        <i class="fa-solid fa-cart-shopping text-lg"></i>
-        Cart
+    
+      <!-- Account -->
+      <div class="text-[10px] text-left hidden xs:block">
+        <p>Hello, Sign in</p>
+        <p class="font-bold">Accounts</p>
       </div>
+    
+      <!-- Orders -->
+      <div class="text-[10px] text-left hidden xs:block">
+        <p>Returns</p>
+        <p class="font-bold">& Orders</p>
+      </div>
+    
     </header>
-
+  
     <!-- Panel -->
-    <div class="relative bg-[#222f3d] text-white flex items-center h-[40px] justify-evenly px-4">
-      <div class="cursor-pointer hover:border-b hover:border-white" onclick="openSidebar()">
-        <i class="fa-solid fa-bars mr-1"></i>All
+      <div class="bg-[#222f3d] text-white px-4 py-2 overflow-x-auto whitespace-nowrap">
+        <div class="flex items-center gap-6">
+          <div class="cursor-pointer hover:border-b hover:border-white" onclick="openSidebar()">
+            <i class="fa-solid fa-bars mr-1"></i> All
+          </div>
+          <p class="cursor-pointer hover:border-b hover:border-white">Today's Deals</p>
+          <p class="cursor-pointer hover:border-b hover:border-white">Registry</p>
+          <p class="cursor-pointer hover:border-b hover:border-white">Customer Service</p>
+          <p class="cursor-pointer hover:border-b hover:border-white">Gift Cards</p>
+          <p class="cursor-pointer hover:border-b hover:border-white">Sell</p>
+        </div>
       </div>
-      <div class="flex space-x-4 text-sm justify-center">
-        <p class="cursor-pointer hover:border-b hover:border-white">Today's Deals</p>
-        <p class="cursor-pointer hover:border-b hover:border-white">Registry</p>
-        <p class="cursor-pointer hover:border-b hover:border-white">Customer Service</p>
-        <p class="cursor-pointer hover:border-b hover:border-white">Gift Cards</p>
-        <p class="cursor-pointer hover:border-b hover:border-white">Sell</p>
-      </div>
-      <div class="cursor-pointer hover:border-b hover:border-white text-sm">Shop deals in Electronics</div>
     </div>
 
     <!-- Main Banner -->
-    <div class="bg-[url('main_image.jpg')] bg-cover h-[380px] flex items-end justify-center">
-      <div class="bg-white text-black h-10 text-sm w-[85%] flex items-center justify-center mb-6 px-4">
-        You are on Amazon.com. You can shop on PrimeCart India for millions of products with local delivery.
-        <a href="#" class="text-[#007185] ml-1">Click here to go to PrimeCart.in</a>
+    <div class="bg-[url('main_image.jpg')] bg-cover h-[380px] sm:h-[320px] bg-center bg-no-repeat md:h-[380px] flex items-end justify-center">
+      <div class="bg-white text-black text-xs sm:text-sm w-[90%] md:w-[85%] mb-4 sm:mb-6 px-3 sm:px-4 py-2 flex items-center justify-center text-center leading-snug">
+        You are on Amazon.com. You can shop on Amazon India for millions of products with local delivery.
+        <a href="#" class="text-[#007185] ml-1 whitespace-nowrap">Click here to go to Amazon.in</a>
       </div>
     </div>
 
     <!-- Shop Boxes -->
-    <div class="flex flex-wrap justify-evenly bg-[#e2e7e6]">
-   
+    <div class="flex flex-wrap justify-center md:justify-evenly bg-[#e2e7e6]">
+      
       <!-- Box 1 -->
-      <div class="w-[23%] h-[400px] p-5 mt-4 bg-white shadow-md">
-        <div class="mx-4">
-          <h2 class="text-lg font-semibold">Clothes</h2>
-          <div class="bg-[url('box1_image.jpg')] bg-cover h-[300px] my-4"></div>
-          <p class="text-[#007185] cursor-pointer">See More</p>
-        </div>
+    <div class="w-[90%] sm:w-[45%] md:w-[23%] h-[400px] p-5 mt-4 bg-white shadow-md">
+      <div class="mx-4">
+        <h2 class="text-lg font-semibold">Clothes</h2>
+        <div class="bg-[url('box1_image.jpg')] bg-cover h-[300px] my-4"></div>
+        <p class="text-[#007185] cursor-pointer">See More</p>
       </div>
-      <!-- Box 2 -->
-<div class="w-[23%] h-[400px] p-5 mt-4 bg-white shadow-md">
-  <div class="mx-4">
-    <h2 class="text-lg font-semibold">Personal & Health Care</h2>
-    <div class="bg-[url('box2_image.jpg')] bg-cover h-[300px] my-4"></div>
-    <p class="text-[#007185] cursor-pointer">See More</p>
-  </div>
-</div>
+    </div>
 
-<!-- Box 3 -->
-<div class="w-[23%] h-[400px] p-5 mt-4 bg-white shadow-md">
-  <div class="mx-4">
-    <h2 class="text-lg font-semibold">Best Deals in PC's</h2>
-    <div class="bg-[url('box3_image.jpg')] bg-cover h-[300px] my-4"></div>
-    <p class="text-[#007185] cursor-pointer">See More</p>
-  </div>
-</div>
+    <!-- Box 2 -->
+    <div class="w-[90%] sm:w-[45%] md:w-[23%] h-[400px] p-5 mt-4 bg-white shadow-md">
+      <div class="mx-4">
+        <h2 class="text-lg font-semibold">Personal & Health Care</h2>
+        <div class="bg-[url('box2_image.jpg')] bg-cover h-[300px] my-4"></div>
+        <p class="text-[#007185] cursor-pointer">See More</p>
+      </div>
+    </div>
 
-<!-- Box 4 -->
-<div class="w-[23%] h-[400px] p-5 mt-4 bg-white shadow-md">
-  <div class="mx-4">
-    <h2 class="text-lg font-semibold">Electronics</h2>
-    <div class="bg-[url('box4_image.jpg')] bg-cover h-[300px] my-4"></div>
-    <p class="text-[#007185] cursor-pointer">See More</p>
-  </div>
-</div>
+    <!-- Box 3 -->
+    <div class="w-[90%] sm:w-[45%] md:w-[23%] h-[400px] p-5 mt-4 bg-white shadow-md">
+      <div class="mx-4">
+        <h2 class="text-lg font-semibold">Best Deals in PC's</h2>
+        <div class="bg-[url('box3_image.jpg')] bg-cover h-[300px] my-4"></div>
+        <p class="text-[#007185] cursor-pointer">See More</p>
+      </div>
+    </div>
 
-<!-- Box 5 -->
-<div class="w-[23%] h-[400px] p-5 mt-4 bg-white shadow-md">
-  <div class="mx-4">
-    <h2 class="text-lg font-semibold">Beauty Picks</h2>
-    <div class="bg-[url('box5_image.jpg')] bg-cover h-[300px] my-4"></div>
-    <p class="text-[#007185] cursor-pointer">See More</p>
-  </div>
-</div>
+    <!-- Box 4 -->
+    <div class="w-[90%] sm:w-[45%] md:w-[23%] h-[400px] p-5 mt-4 bg-white shadow-md">
+      <div class="mx-4">
+        <h2 class="text-lg font-semibold">Electronics</h2>
+        <div class="bg-[url('box4_image.jpg')] bg-cover h-[300px] my-4"></div>
+        <p class="text-[#007185] cursor-pointer">See More</p>
+      </div>
+    </div>
 
-<!-- Box 6 -->
-<div class="w-[23%] h-[400px] p-5 mt-4 bg-white shadow-md">
-  <div class="mx-4">
-    <h2 class="text-lg font-semibold">Pet Food</h2>
-    <div class="bg-[url('box6_image.jpg')] bg-cover h-[300px] my-4"></div>
-    <p class="text-[#007185] cursor-pointer">See More</p>
-  </div>
-</div>
+    <!-- Box 5 -->
+    <div class="w-[90%] sm:w-[45%] md:w-[23%] h-[400px] p-5 mt-4 bg-white shadow-md">
+      <div class="mx-4">
+        <h2 class="text-lg font-semibold">Beauty Picks</h2>
+        <div class="bg-[url('box5_image.jpg')] bg-cover h-[300px] my-4"></div>
+        <p class="text-[#007185] cursor-pointer">See More</p>
+      </div>
+    </div>
 
-<!-- Box 7 -->
-<div class="w-[23%] h-[400px] p-5 mt-4 bg-white shadow-md">
-  <div class="mx-4">
-    <h2 class="text-lg font-semibold">New Arrival in Toys</h2>
-    <div class="bg-[url('box7_image.jpg')] bg-cover h-[300px] my-4"></div>
-    <p class="text-[#007185] cursor-pointer">See More</p>
-  </div>
-</div>
+    <!-- Box 6 -->
+    <div class="w-[90%] sm:w-[45%] md:w-[23%] h-[400px] p-5 mt-4 bg-white shadow-md">
+      <div class="mx-4">
+        <h2 class="text-lg font-semibold">Pet Food</h2>
+        <div class="bg-[url('box6_image.jpg')] bg-cover h-[300px] my-4"></div>
+        <p class="text-[#007185] cursor-pointer">See More</p>
+      </div>
+    </div>
 
-<!-- Box 8 -->
-<div class="w-[23%] h-[400px] p-5 mt-4 bg-white shadow-md">
-  <div class="mx-4">
-    <h2 class="text-lg font-semibold">Discover Fashion Trends</h2>
-    <div class="bg-[url('box8_image.jpg')] bg-cover h-[300px] my-4"></div>
-    <p class="text-[#007185] cursor-pointer">See More</p>
-  </div>
-</div>
+    <!-- Box 7 -->
+    <div class="w-[90%] sm:w-[45%] md:w-[23%] h-[400px] p-5 mt-4 bg-white shadow-md">
+      <div class="mx-4">
+        <h2 class="text-lg font-semibold">New Arrival in Toys</h2>
+        <div class="bg-[url('box7_image.jpg')] bg-cover h-[300px] my-4"></div>
+        <p class="text-[#007185] cursor-pointer">See More</p>
+      </div>
+    </div>
+
+    <!-- Box 8 -->
+    <div class="w-[90%] sm:w-[45%] md:w-[23%] h-[400px] p-5 mt-4 bg-white shadow-md">
+      <div class="mx-4">
+        <h2 class="text-lg font-semibold">Discover Fashion Trends</h2>
+        <div class="bg-[url('box8_image.jpg')] bg-cover h-[300px] my-4"></div>
+        <p class="text-[#007185] cursor-pointer">See More</p>
+      </div>
+    </div>
 
     </div>
 
@@ -208,41 +222,25 @@
       <div class="bg-[#37475a] text-white flex justify-center items-center h-[45px] font-bold">
         <a href="#">Back to top</a>
       </div>
-      <div class="bg-[#222f3d] text-white flex justify-evenly py-6">
+      <div class="bg-[#222f3d] text-white flex flex-col sm:flex-row justify-evenly py-6 text-center sm:text-left">
         <ul>
           <p class="mb-2 font-semibold">Get to know us</p>
           <li class="text-sm mt-1">Careers</li>
           <li class="text-sm mt-1">Blogs</li>
           <li class="text-sm mt-1">About Us</li>
-          <li class="text-sm mt-1">Investor Relations</li>
-          <li class="text-sm mt-1">Our Devices</li>
         </ul>
         <ul>
           <p class="mb-2 font-semibold">Make Money with Us</p>
           <li class="text-sm mt-1">Sell products</li>
-          <li class="text-sm mt-1">Sell apps</li>
-          <li class="text-sm mt-1">Become Affiliate</li>
           <li class="text-sm mt-1">Advertise your products</li>
-          <li class="text-sm mt-1">Self-Publish with us</li>
-          <li class="text-sm mt-1">See more</li>
-        </ul>
-        <ul>
-          <p class="mb-2 font-semibold">Payment Products</p>
-          <li class="text-sm mt-1">Business Cards</li>
-          <li class="text-sm mt-1">Shop with Points</li>
-          <li class="text-sm mt-1">Reload your business</li>
-          <li class="text-sm mt-1">Currency Converter</li>
         </ul>
         <ul>
           <p class="mb-2 font-semibold">Let us help you</p>
           <li class="text-sm mt-1">Your Account</li>
-          <li class="text-sm mt-1">Your Orders</li>
-          <li class="text-sm mt-1">Returns & Replacements</li>
-          <li class="text-sm mt-1">Manage Content & Devices</li>
           <li class="text-sm mt-1">Customer Service</li>
         </ul>
       </div>
-      <div class="flex justify-center items-center bg-[#222f3d] text-white border-t border-white h-[60px]">
+      <div class="flex flex-col sm:flex-row justify-center items-center bg-[#222f3d] text-white border-t border-white h-[60px]">
         <div class="bg-[url('amazon_logo.png')] bg-cover w-[135px] h-[50px]"></div>
       </div>
       <div class="bg-[#0f1111] text-white text-center text-xs py-3">
